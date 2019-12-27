@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Тестовое задание</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+  </head>
+  <body>
+    <div class="tabset">
+      <input type="radio" name="tabset" id="tab1" aria-controls="marzen" />
+      <label for="tab1">В черте города</label>
+
+      <input
+        type="radio"
+        checked
+        name="tabset"
+        id="tab2"
+        aria-controls="rauchbier"
+      />
+      <label for="tab2">За городом</label>
+      <input type="radio" name="tabset" id="tab3" aria-controls="dunkles" />
+      <label for="tab3">На карте</label>
+
+      <div class="pages">
+        <section id="city_page" class="page"></section>
+        <section id="outcity_page" class="page"></section>
+        <section id="map_page" class="page"></section>
+      </div>
+    </div>
+  </body>
+</html>

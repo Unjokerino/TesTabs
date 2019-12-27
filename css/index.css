@@ -1,0 +1,126 @@
+.tabset > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .page {
+  display: none;
+}
+
+.tabset > input:first-child:checked ~ .pages > .page:first-child,
+.tabset > input:nth-child(3):checked ~ .pages > .page:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .pages > .page:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .pages > .page:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .pages > .page:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .pages > .page:nth-child(6) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body {
+  color: #333;
+  font-weight: 300;
+}
+
+.tabset > label {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 180px;
+  margin-right: 10px;
+  padding: 15px 37px 12px 20px;
+  background: #dcdcdc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabset > label:hover,
+.tabset > input:focus + label {
+  color: #06c;
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+  background: #06c;
+}
+
+.tabset > input:checked + label {
+  background: #0c74e2;
+  color: white;
+  margin-bottom: -1px;
+}
+
+.page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card {
+  margin-right: 20px;
+  width: 210px;
+}
+
+.objects_container {
+  border: 1px solid #c4c4c4;
+}
+
+.objects_container input[type="search"] {
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.objects_container input[type="checkbox"] {
+  background: none;
+}
+
+.objects_container ul {
+  padding: 0;
+  padding: 10px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.objects_container ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.objects_container ul li label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.objects_container ul li label .object_count {
+  color: #0c74e2;
+  text-align: right;
+}
+
+* {
+  font-family: "Work Sans", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  padding: 30px;
+}
+/*# sourceMappingURL=index.css.map */
