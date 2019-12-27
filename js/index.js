@@ -136,8 +136,8 @@ function createCard(title, adreses) {
   adreses.map((adress, index) => {
     let item = document.createElement("li");
 
-    item.innerHTML = `  <input type="checkbox" name="${adress.title}" id="object_${adress.index}"> 
-                        <label for="object_${adress.index}">
+    item.innerHTML = `  <input type="checkbox" name="${adress.title}" id="${title}_${index}"> 
+                        <label for="${title}_${index}">
                             <span class="objct_title">${adress.title}</span> 
                             <span class="object_count">${adress.count}</span>
                         </label>`;

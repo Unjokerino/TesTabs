@@ -54,8 +54,12 @@ body {
 
 .page {
   display: flex;
+  flex-wrap: wrap;
 }
 .card {
+  h3 {
+    margin-bottom: 8px;
+  }
   margin-right: 20px;
   width: 210px;
 }
@@ -64,6 +68,8 @@ body {
   input[type="search"] {
     padding: 5px;
     border: none;
+    width: 100%;
+    flex: 1;
     border-bottom: 1px solid #c4c4c4;
   }
 
@@ -71,17 +77,21 @@ body {
     background: none;
   }
   ul {
+    height: 250px;
+    overflow: auto;
     padding: 0;
     padding: 10px;
     list-style: none;
     text-decoration: none;
     li {
+      margin-bottom: 5px;
       display: flex;
       label {
         display: flex;
         flex: 1;
         justify-content: space-between;
         .object_count {
+          font-weight: 500;
           color: $tintColor;
           text-align: right;
         }
