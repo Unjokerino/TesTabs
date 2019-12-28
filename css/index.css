@@ -248,4 +248,13 @@ body {
   color: white;
   border: none;
 }
+
+@media screen and (max-width: 900px) {
+  body {
+    padding: 0;
+  }
+  .tabset {
+    padding: 0;
+  }
+}
 /*# sourceMappingURL=index.css.map */

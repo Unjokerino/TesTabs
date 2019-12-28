@@ -219,3 +219,12 @@ body {
 
   }
 }
+
+@media screen and (max-width: 900px) {
+  body{
+    padding: 0;
+  }
+  .tabset{
+    padding: 0;
+  }
+}
