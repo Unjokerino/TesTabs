@@ -256,5 +256,8 @@ body {
   .tabset {
     padding: 0;
   }
+  .card {
+    margin-right: 0px;
+  }
 }
 /*# sourceMappingURL=index.css.map */
