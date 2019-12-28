@@ -227,18 +227,23 @@ clearCheckboxes = () => {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
+createCardContainer = (objects) =>{
   let card_container = document.createElement("div");
-  let clear_btn = document.querySelector('#clear_btn')
-  let accept_btn = document.querySelector('#accept_btn')
-
   card_container.classList.add('card_container')
 
   objects.forEach(object => {
     card_container.append(createCard(object.title, object.adreses))
   });
-  document.querySelector("#outcity_page").prepend(card_container);
 
+  return card_container
+
+}
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  let clear_btn = document.querySelector('#clear_btn')
+  let accept_btn = document.querySelector('#accept_btn')
+
+  document.querySelector("#outcity_page").prepend(createCardContainer(objects));
   clear_btn.addEventListener('click', () => clearCheckboxes())
 
 });
