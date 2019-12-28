@@ -113,11 +113,81 @@ const objects = [
         title: "Что бы было что полистать",
         count: 89
       }
+      ,
+      {
+        title: "Что бы было что полистать",
+        count: 89
+      }
+      ,
+      {
+        title: "Что бы было что полистать",
+        count: 89
+      }
     ]
   }
 ];
+searchAdreses = (event, title) => {
 
-function createCard(title, adreses) {
+  let searchQuery = event.target.value !== null && event.target.value !== undefined ? event.target.value.toLowerCase() : ''
+  let searchResult = []
+  let list = document.querySelector(`ul[name="${title}"]`)
+  let currentIndex
+  objects.forEach((object, index) => {
+    if (object.title === title) {
+      currentIndex = index
+    }
+  })
+
+  if (searchQuery !== '') {
+    Object.entries(objects[currentIndex].adreses).forEach(adressArr => {
+      const [key, adress] = adressArr
+      if (adress.title.toLowerCase().includes(searchQuery)) {
+        searchResult = [...searchResult, adress]
+
+      }
+    })
+  } else {
+    searchResult = objects[currentIndex].adreses
+  }
+
+  list.innerHTML = ''
+  searchResult.forEach((result, index) => {
+
+    list.append(createCardItem(result, title, index))
+  })
+}
+
+countAdressValue = event => {
+
+  let checkboxes = document.querySelectorAll('input[type="checkbox"]')
+  let result = []
+  checkboxes.forEach(checkbox => {
+    if (checkbox.checked) {
+
+      let count = Number(checkbox.nextElementSibling.querySelector('.object_count').innerText)
+
+      result = [...result, count]
+    }
+  })
+  console.log(result.reduce((accumulator, currentValue) => accumulator + currentValue))
+}
+
+createCardItem = (adress, title, index) => {
+
+  let item = document.createElement("li");
+
+  item.innerHTML = `<input type="checkbox" name="${adress.title}" id="${title}_${adress.title}"> 
+                        <label for="${title}_${adress.title}">
+                            <span class="object_title">${adress.title}</span> 
+                            <span class="object_count">${adress.count}</span>
+                        </label>`;
+  item.querySelector('input').addEventListener('click', () => countAdressValue(event))
+
+  return item
+}
+
+createCard = (title, adreses) => {
+
   let card = document.createElement("div");
   card.classList.add("card");
 
@@ -130,19 +200,14 @@ function createCard(title, adreses) {
   let search_input = document.createElement("input");
   search_input.setAttribute("type", "search");
   search_input.setAttribute("placeholder", "Поиск");
+  search_input.addEventListener('input', () => searchAdreses(event, title))
 
   let objects_list = document.createElement("ul");
+  objects_list.setAttribute('name', title)
 
   adreses.map((adress, index) => {
-    let item = document.createElement("li");
+    objects_list.append(createCardItem(adress, title, index));
 
-    item.innerHTML = `  <input type="checkbox" name="${adress.title}" id="${title}_${index}"> 
-                        <label for="${title}_${index}">
-                            <span class="objct_title">${adress.title}</span> 
-                            <span class="object_count">${adress.count}</span>
-                        </label>`;
-
-    objects_list.append(item);
   });
 
   objects_container.append(search_input);
@@ -151,11 +216,33 @@ function createCard(title, adreses) {
   card.append(card_title);
   card.append(objects_container);
 
-  document.querySelector("#outcity_page").append(card);
+  return (card);
+
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-  objects.forEach(object => {
-    createCard(object.title, object.adreses);
+clearCheckboxes = () => {
+  let checkboxes = document.querySelectorAll('input[type="checkbox"]')
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = false
   });
+}
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  let card_container = document.createElement("div");
+  let clear_btn = document.querySelector('#clear_btn')
+  let accept_btn = document.querySelector('#accept_btn')
+
+  card_container.classList.add('card_container')
+
+  objects.forEach(object => {
+    card_container.append(createCard(object.title, object.adreses))
+  });
+  document.querySelector("#outcity_page").prepend(card_container);
+
+  clear_btn.addEventListener('click', () => clearCheckboxes())
+
 });
+
+
+
+

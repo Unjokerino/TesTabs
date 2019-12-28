@@ -1,3 +1,30 @@
+* {
+  font-family: "Work Sans", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  padding: 0px;
+  margin: 0;
+  padding: 30px;
+}
+
+.tabset {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 4px solid #0c74e2;
+  padding: 30px;
+  margin: auto;
+}
+
 .tabset > input[type="radio"] {
   position: absolute;
   left: -200vw;
@@ -9,10 +36,7 @@
 
 .tabset > input:first-child:checked ~ .pages > .page:first-child,
 .tabset > input:nth-child(3):checked ~ .pages > .page:nth-child(2),
-.tabset > input:nth-child(5):checked ~ .pages > .page:nth-child(3),
-.tabset > input:nth-child(7):checked ~ .pages > .page:nth-child(4),
-.tabset > input:nth-child(9):checked ~ .pages > .page:nth-child(5),
-.tabset > input:nth-child(11):checked ~ .pages > .page:nth-child(6) {
+.tabset > input:nth-child(5):checked ~ .pages > .page:nth-child(3) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,17 +48,31 @@ body {
 }
 
 .tabset > label {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   position: relative;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   width: 180px;
+  margin-bottom: 13px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0c74e2;
   margin-right: 10px;
-  padding: 15px 37px 12px 20px;
+  padding: 13px 20px 10px 15px;
   background: #dcdcdc;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
+}
+
+.tabset > label i {
+  margin-right: 15px;
 }
 
 .tabset > label:hover,
@@ -62,13 +100,25 @@ body {
       flex-wrap: wrap;
 }
 
+.page img {
+  width: 600px;
+}
+
 .card {
   margin-right: 20px;
-  width: 210px;
+  min-width: 210px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .card h3 {
+  margin: 0;
   margin-bottom: 8px;
+}
+
+.card:last-child {
+  margin-right: 0;
 }
 
 .objects_container {
@@ -91,15 +141,35 @@ body {
 
 .objects_container ul {
   height: 250px;
-  overflow: auto;
+  overflow-y: scroll;
   padding: 0;
-  padding: 10px;
+  padding: 15px;
   list-style: none;
   text-decoration: none;
 }
 
+.objects_container ul::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+
+.objects_container ul::-webkit-scrollbar {
+  width: 7px;
+  background-color: #F5F5F5;
+}
+
+.objects_container ul::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #0c74e2;
+}
+
+.objects_container ul::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #acacac;
+}
+
 .objects_container ul li {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,26 +185,67 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  font-weight: 550;
+  opacity: 0.9;
+}
+
+.objects_container ul li label .object_title {
+  white-space: pre-wrap;
+  width: 120px;
 }
 
 .objects_container ul li label .object_count {
-  font-weight: 500;
   color: #0c74e2;
   text-align: right;
 }
 
-* {
-  font-family: "Work Sans", sans-serif;
+.card_container {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+#outcity_page {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-body {
-  padding: 30px;
+#outcity_page .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 24px;
+}
+
+#outcity_page .menu button {
+  cursor: pointer;
+  padding: 12px 68px;
+}
+
+#outcity_page .menu button:hover {
+  opacity: 0.6;
+}
+
+#outcity_page .menu #clear_btn {
+  color: #0c74e2;
+  border: 2px solid #0c74e2;
+  background: white;
+  margin-right: 20px;
+}
+
+#outcity_page .menu #accept_btn {
+  background: #0c74e2;
+  color: white;
+  border: none;
 }
 /*# sourceMappingURL=index.css.map */
