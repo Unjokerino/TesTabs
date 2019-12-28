@@ -254,6 +254,7 @@ body {
     padding: 0;
   }
   .tabset {
+    border: none;
     padding: 0;
   }
   .card {

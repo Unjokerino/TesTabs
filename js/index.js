@@ -169,7 +169,10 @@ countAdressValue = event => {
       result = [...result, count]
     }
   })
-  console.log(result.reduce((accumulator, currentValue) => accumulator + currentValue))
+  if(result.length > 0){
+    console.log(result.reduce((accumulator, currentValue) => accumulator + currentValue))
+  }
+
 }
 
 createCardItem = (adress, title, index) => {
